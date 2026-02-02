@@ -7,7 +7,7 @@ This project demonstrates how to identify, analyze, and query batch and streamin
 
 The project highlights how streaming data enables minute-by-minute insights, while batch data supports historical and aggregated analysis.
 
-🧠 Business Scenario
+## 🧠 Business Scenario
 
 ### A lead merchandiser needs to monitor:
 
@@ -21,7 +21,7 @@ The project highlights how streaming data enables minute-by-minute insights, whi
 
 * Batch source: orders table (periodic batch loads)
 
-🏗️ ## Architecture
+## 🏗️ Architecture
 
 * Data Warehouse: Google BigQuery
 
@@ -31,7 +31,7 @@ The project highlights how streaming data enables minute-by-minute insights, whi
 
 * Analytics Layer: SQL queries with time-based aggregation
 
-🔍 ## Key Concepts Demonstrated
+## 🔍 Key Concepts Demonstrated
 
 * Difference between batch vs streaming data processing
 
@@ -45,7 +45,7 @@ The project highlights how streaming data enables minute-by-minute insights, whi
 
 * Designing queries for live dashboards
 
-🧪 ## Queries Used
+## 🧪 Queries Used
 1️⃣ ### Identify Streaming Data
 SELECT *
 FROM `thelook_gcda.shopping_cart`
@@ -54,7 +54,8 @@ LIMIT 10;
 
 ✔ Shows continuously changing results due to streaming inserts
 
-2️⃣ Identify Batch Data
+### 2️⃣ Identify Batch Data
+
 SELECT *
 FROM `thelook_gcda.orders`
 ORDER BY created_at DESC
@@ -62,7 +63,8 @@ LIMIT 10;
 
 ✔ Results remain static until the next batch load
 
-3️⃣ Minute-by-Minute Streaming Analytics
+### 3️⃣ Minute-by-Minute Streaming Analytics
+
 SELECT
   p.category,
   FORMAT_TIMESTAMP('%H:%M', sc.created_at) AS added_at_minute,
@@ -77,52 +79,39 @@ ORDER BY added_at_minute DESC;
 
 ✔ Enables real-time dashboarding for merchandising decisions
 
-📈 Insights Generated
+## 📈 Insights Generated
 
-Streaming data provides real-time visibility into customer behavior
+* Streaming data provides real-time visibility into customer behavior
 
-Batch data is ideal for historical reporting and reconciliation
+* Batch data is ideal for historical reporting and reconciliation
 
-Combining both enables hybrid analytics architectures
+* Combining both enables hybrid analytics architectures
 
-🛠️ Tools & Technologies
+## 🛠️ Tools & Technologies
 
-Google BigQuery
+- Google BigQuery
+- SQL
+- Streaming Buffers
+- Time-series Aggregation
+- Cloud Data Analytics
 
-SQL
+## 🎯 Skills Demonstrated
 
-Streaming Buffers
+- Cloud Data Analytics
+- Streaming vs Batch Processing
+- SQL for Analytics
+- Time-based Data Aggregation
+- Data Modeling & Joins
+- Business-Oriented Analytics Design
 
-Time-series Aggregation
-
-Cloud Data Analytics
-
-🎯 Skills Demonstrated
-
-Cloud Data Analytics
-
-Streaming vs Batch Processing
-
-SQL for Analytics
-
-Time-based Data Aggregation
-
-Data Modeling & Joins
-
-Business-Oriented Analytics Design
-
-📌 Use Cases
-
-Real-time dashboards
-
-Promotion effectiveness analysis
-
-Inventory and demand monitoring
-
-eCommerce behavioral analytics
+## 📌 Use Cases
+- Real-time dashboards
+- Promotion effectiveness analysis
+- Inventory and demand monitoring
+- eCommerce behavioral analytics
 
 🏁 Conclusion
 
-This project showcases how cloud-native analytics platforms like BigQuery enable both real-time and batch analytics, empowering businesses to make faster and smarter decisions using live data streams.
 
-📎 This project was completed as part of the Google Cloud Data Analytics learning program.
+
+### 📎 This project was completed as part of the Google Cloud Data Analytics learning program.
