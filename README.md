@@ -47,38 +47,15 @@ The project highlights how streaming data enables minute-by-minute insights, whi
 
 ## 🧪 Queries Used
 ### 1️⃣ Identify Streaming Data
-
-SELECT *
-FROM `thelook_gcda.shopping_cart`
-ORDER BY created_at DESC
-LIMIT 10;
-
-✔ Shows continuously changing results due to streaming inserts
+<img src="./queries/streaming_cart_query.png" height="400" width="400">
 
 ### 2️⃣ Identify Batch Data
 
-SELECT *
-FROM `thelook_gcda.orders`
-ORDER BY created_at DESC
-LIMIT 10;
-
-✔ Results remain static until the next batch load
+<img src="./queries/batch_orders_query.png" height="400" width="400">
 
 ### 3️⃣ Minute-by-Minute Streaming Analytics
 
-SELECT
-  p.category,
-  FORMAT_TIMESTAMP('%H:%M', sc.created_at) AS added_at_minute,
-  SUM(sc.quantity) AS sum_quantity
-FROM `thelook_gcda.shopping_cart` sc
-INNER JOIN `thelook_gcda.products` p
-  ON p.id = sc.product_id
-WHERE p.category = 'Jeans'
-  AND sc.created_at > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
-GROUP BY p.category, added_at_minute
-ORDER BY added_at_minute DESC;
-
-✔ Enables real-time dashboarding for merchandising decisions
+<img src="./queries/minute_level_dashboard_query.png" height="400" width="400">
 
 ## 📈 Insights Generated
 
